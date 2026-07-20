@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+docs: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+summary:
+  types: [openIdConnect, oauth2]
+  oauth2_flows: [authorizationCode, clientCredentials, password, deviceCode, ciba, implicit]
+  pkce: [S256, plain]
+  provider: Keycloak
+  gateway: Kong
+schemes:
+- name: openIdConnect
+  type: openIdConnect
+  openIdConnectUrl: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+  issuer: https://auth.jooraccess.com/auth/realms/joor
+  endpoints:
+    authorization: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/auth
+    token: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/token
+    userinfo: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/userinfo
+    introspection: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/token/introspect
+    end_session: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/logout
+  grant_types:
+  - authorization_code
+  - client_credentials
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:openid:params:grant-type:ciba
+  token_endpoint_auth_methods:
+  - private_key_jwt
+  - client_secret_basic
+  - client_secret_post
+  - tls_client_auth
+  - client_secret_jwt
+  code_challenge_methods: [S256, plain]
+  id_token_signing_alg_values: [RS256, ES256, PS256, RS384, ES384, PS384, RS512, ES512, PS512, HS256, HS384, HS512]
+  sources: [well-known/joor-openid-configuration.json]
+notes: >-
+  Auth is derived from the live Keycloak OIDC discovery document (searched), not
+  from a JOOR-published OpenAPI (none is public). client_credentials and
+  private_key_jwt/tls_client_auth support indicate machine-to-machine and
+  mTLS-capable integration clients; PKCE S256 is supported for public clients.
