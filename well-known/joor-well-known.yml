@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+source: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+notes: >-
+  JOOR's marketing host (www.jooraccess.com) serves a SPA that returns HTTP 302
+  to Keycloak login for /.well-known/* paths (no root-level discovery documents,
+  no security.txt). The real discovery surface is the Keycloak identity realm at
+  auth.jooraccess.com, which publishes a live OpenID Connect configuration.
+hosts:
+- host: https://auth.jooraccess.com/auth/realms/joor
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: joor-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://www.jooraccess.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+  - path: /.well-known/openid-configuration
+    status: 302
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+  - path: /.well-known/api-catalog
+    status: 302
+  - path: /.well-known/ai-plugin.json
+    status: 302

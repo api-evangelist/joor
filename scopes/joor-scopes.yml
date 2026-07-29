@@ -1,0 +1,46 @@
+generated: '2026-07-19'
+method: searched
+source: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+docs: https://auth.jooraccess.com/auth/realms/joor/.well-known/openid-configuration
+schemes:
+- name: openIdConnect
+  source: well-known/joor-openid-configuration.json
+  issuer: https://auth.jooraccess.com/auth/realms/joor
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/auth
+    tokenUrl: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/token
+  - flow: clientCredentials
+    tokenUrl: https://auth.jooraccess.com/auth/realms/joor/protocol/openid-connect/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; issue an ID token.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: profile
+  description: Access to basic profile claims (name, preferred_username, etc.).
+  sources: [well-known/joor-openid-configuration.json]
+- scope: email
+  description: Access to the user's email address claim.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: address
+  description: Access to the user's address claim.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: phone
+  description: Access to the user's phone number claim.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: roles
+  description: Realm and client role claims for the authenticated principal.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: offline_access
+  description: Issue a refresh token for offline / long-lived access.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: web-origins
+  description: CORS web-origin allow-list claim for browser clients.
+  sources: [well-known/joor-openid-configuration.json]
+- scope: microprofile-jwt
+  description: MicroProfile JWT claims (groups, upn) for service authorization.
+  sources: [well-known/joor-openid-configuration.json]
+notes: >-
+  These are the scopes advertised by JOOR's Keycloak realm discovery document
+  (scopes_supported). They are the standard Keycloak/OIDC scope set; JOOR does
+  not publish an application-level scope reference on a public developer portal.

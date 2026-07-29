@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.joor.com
+status_page: https://status.joor.com
+status_provider: Atlassian Statuspage
+status_components:
+- Web Platform
+- iOS Applications
+- Integrations
+versioning:
+  scheme: unknown
+  notes: JOOR publishes no public API versioning policy (no public developer portal).
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No public deprecation policy or RFC 8594 Sunset/Deprecation header documentation found.
+sla:
+  url: null
+notes: >-
+  Only the public status page is confirmed (Atlassian Statuspage, "All Systems
+  Operational", components Web Platform / iOS Applications / Integrations). No
+  public versioning, deprecation, or SLA documentation is published, so no
+  Deprecation pointer is emitted.
